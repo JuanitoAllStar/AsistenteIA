@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AsistenteIA.Views.HistoryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:AsistenteIA.ViewModels"
+    Title="Historial">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,*" RowSpacing="10">
+        <SearchBar Text="{Binding SearchText}" Placeholder="Buscar por texto o categoría"
+                   SemanticProperties.Description="Buscar en el historial" />
+        <Label Grid.Row="1" Text="{Binding EmptyMessage}" />
+
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="12" Margin="0,0,0,10" StrokeThickness="1">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Prompt}" FontAttributes="Bold" MaxLines="2"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding Category}" FontSize="12" />
+                            <Label Text="{Binding CreatedLocal}" FontSize="12" />
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                <Button Text="Ver detalle"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HistoryViewModel}}, Path=OpenCommand}"
+                                        CommandParameter="{Binding .}" />
+                                <Button Grid.Column="1" Text="Eliminar"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HistoryViewModel}}, Path=DeleteCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

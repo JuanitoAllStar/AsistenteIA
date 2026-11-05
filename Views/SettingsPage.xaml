@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AsistenteIA.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Configuración">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+            <Label Text="Configuración" FontSize="26" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level1" />
+
+            <Label Text="{Binding KeyState}" />
+            <Entry Text="{Binding ApiKey}" IsPassword="True" Placeholder="Pegue su clave de la API"
+                   SemanticProperties.Description="Campo de la clave de la API, oculto" />
+            <Button Text="Guardar clave" Command="{Binding SaveKeyCommand}" />
+            <Button Text="Probar conexión" Command="{Binding TestCommand}" />
+            <Button Text="Eliminar clave" Command="{Binding DeleteKeyCommand}" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <Label Text="{Binding Status}" FontSize="13" />
+
+            <Label Text="Modelo" FontSize="18" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Picker Title="Modelo de IA" ItemsSource="{Binding Models}"
+                    SelectedItem="{Binding SelectedModel}" />
+            <Button Text="Actualizar lista de modelos" Command="{Binding LoadModelsCommand}" />
+
+            <Label Text="Aviso de privacidad" FontSize="18" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Label Text="No ingrese datos personales, contraseñas, información confidencial ni documentos institucionales sensibles. Las consultas se envían a un servicio externo." />
+
+            <Label Text="Acerca de" FontSize="22" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Label Text="Finalidad: apoyar el estudio con respuestas de IA, siempre verificables." />
+            <Label Text="Autoría: equipo del proyecto final – Programación Avanzada y Aplicada, VI semestre, Universidad de San Buenaventura. (Complete aquí los nombres de los integrantes.)" />
+            <Label Text="Proveedor de IA: Pollinations (API compatible con Chat Completions). Fuentes técnicas: Microsoft Learn y documentación de Pollinations." />
+            <Label Text="Privacidad: la clave se guarda con SecureStorage; el historial se guarda solo en este dispositivo (SQLite)." />
+            <Label Text="Límites: la IA puede equivocarse o inventar información; no es una autoridad. Verifique con fuentes confiables." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

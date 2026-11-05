@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AsistenteIA.Views.ChatPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Consultar IA">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,Auto" RowSpacing="10">
+        <Label Text="Asistente académico de IA" FontSize="26" FontAttributes="Bold"
+               SemanticProperties.HeadingLevel="Level1" />
+
+        <Picker Grid.Row="1" Title="Plantilla de prompt"
+                ItemsSource="{Binding Templates}" ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedTemplate}"
+                SemanticProperties.Description="Seleccionar plantilla de prompt" />
+
+        <Editor Grid.Row="2" Text="{Binding Prompt}"
+                Placeholder="Escriba una consulta académica"
+                AutoSize="TextChanges" MaximumHeightRequest="160" MaxLength="2000"
+                SemanticProperties.Description="Campo de consulta" />
+
+        <Label Grid.Row="3" Text="{Binding PromptCounter}" FontSize="12" HorizontalOptions="End" />
+
+        <Grid Grid.Row="4" ColumnDefinitions="*,*,*" ColumnSpacing="8">
+            <Button Text="Consultar" Command="{Binding AskCommand}" />
+            <Button Grid.Column="1" Text="Cancelar" Command="{Binding CancelCommand}" />
+            <Button Grid.Column="2" Text="Guardar" Command="{Binding SaveCommand}" />
+        </Grid>
+
+        <ScrollView Grid.Row="5">
+            <Label Text="{Binding Answer}" LineBreakMode="WordWrap"
+                   SemanticProperties.Description="Respuesta de la IA" />
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="6" Spacing="4">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <Label Text="{Binding StatusMessage}" FontSize="12" />
+            <Label Text="La IA puede cometer errores. Verifique la información." FontSize="11" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

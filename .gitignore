@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.db3
+*.apk
+*.aab
+secrets.*
+appsettings.*.json
+.env

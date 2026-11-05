@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AsistenteIA.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Inicio">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Label Text="AsistenteIA" FontSize="30" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level1" />
+            <Label Text="Asistente académico móvil con inteligencia artificial"
+                   FontSize="16" />
+
+            <Label Text="Propósito" FontSize="20" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Label Text="Escriba una consulta académica o elija una plantilla, envíela a un modelo de IA mediante una API REST pública y guarde el historial en su dispositivo." />
+
+            <Label Text="Accesos rápidos" FontSize="20" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Button Text="Nueva consulta" Clicked="OnGoChat"
+                    SemanticProperties.Hint="Abre la pantalla para consultar a la IA" />
+            <Button Text="Ver historial" Clicked="OnGoHistory"
+                    SemanticProperties.Hint="Abre la lista de consultas guardadas" />
+            <Button Text="Configurar clave" Clicked="OnGoSettings"
+                    SemanticProperties.Hint="Abre la configuración de la clave de la API" />
+
+            <Label Text="Recomendaciones de uso" FontSize="20" FontAttributes="Bold"
+                   SemanticProperties.HeadingLevel="Level2" />
+            <Label Text="• La IA puede equivocarse o inventar datos: verifique siempre con fuentes confiables." />
+            <Label Text="• No ingrese datos personales, contraseñas ni información confidencial." />
+            <Label Text="• Use la IA como apoyo de estudio, no como autoridad." />
+            <Label Text="• Marque una respuesta como verificada solo después de contrastarla." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
