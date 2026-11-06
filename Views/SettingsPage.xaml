@@ -31,7 +31,7 @@
             <Label Text="Acerca de" FontSize="22" FontAttributes="Bold"
                    SemanticProperties.HeadingLevel="Level2" />
             <Label Text="Finalidad: apoyar el estudio con respuestas de IA, siempre verificables." />
-            <Label Text="Autoría: equipo del proyecto final – Programación Avanzada y Aplicada, VI semestre, Universidad de San Buenaventura. (Complete aquí los nombres de los integrantes.)" />
+               <Label Text="Autoría: Juan Sebastián Garzón Suárez y Nicolás Quiroz – proyecto final de Programación Avanzada y Aplicada, VI semestre, Universidad de San Buenaventura." />
             <Label Text="Proveedor de IA: Pollinations (API compatible con Chat Completions). Fuentes técnicas: Microsoft Learn y documentación de Pollinations." />
             <Label Text="Privacidad: la clave se guarda con SecureStorage; el historial se guarda solo en este dispositivo (SQLite)." />
             <Label Text="Límites: la IA puede equivocarse o inventar información; no es una autoridad. Verifique con fuentes confiables." />
